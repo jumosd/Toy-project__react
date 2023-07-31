@@ -23,10 +23,6 @@ const Main = () => {
     const [form, setForm] = useState([])
     const [filterObject, setFilterObject] = useState({})
 
-    useEffect(() => {
-        console.log('메인컴포넌트', form)
-    }, [form])
-
     const Delete = (id) => {
         const newForm = form.filter((item) => {
             return item.createat !== id
@@ -43,7 +39,7 @@ const Main = () => {
             <Container>
                 <InputWindow type={type} form={form} setForm={setForm} />
                 <Filter type={type} form={form} sortType={sortType} FilterForm={FilterForm} />
-                <List type={type} form={form} Delete={Delete} filterObject={filterObject}></List>
+                <List type={type} form={form} Delete={Delete} filterObject={filterObject} sortType={sortType}></List>
             </Container >
         </>
     );
