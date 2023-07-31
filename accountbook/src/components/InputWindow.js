@@ -8,7 +8,7 @@ const InputWindow = (props) => {
     const price = useRef(0)
     const type = useRef('')
     const dayOfPurchase = useRef()
-    const memo = useRef()
+    const memo = useRef('')
 
     const isMemoCheck = (event) => {
         if (isMemo === true) {
@@ -32,7 +32,7 @@ const InputWindow = (props) => {
                 price: price.current.value,
                 type: type.current.value,
                 memo: memo.current.value,
-                dayOfPurchase: new Date(dayOfPurchase.current.value),
+                dayOfPurchase: dayOfPurchase.current.value,
                 repurchase: repurchase
             }, ...props.form])
 
