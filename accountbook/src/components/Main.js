@@ -10,10 +10,18 @@ const type = {
     communicationCost: "통신",
 }
 
+const sortType = {
+    priceMax: "가격높은순",
+    priceMin: "가격낮은순",
+    new: "최신순",
+    old: "오래된순"
+}
+
 
 const Main = () => {
 
     const [form, setForm] = useState([])
+    const [filterObject, setFilterObject] = useState({})
 
     useEffect(() => {
         console.log('메인컴포넌트', form)
@@ -25,12 +33,17 @@ const Main = () => {
         })
         setForm(newForm)
     }
+
+    const FilterForm = (data) => {
+        setFilterObject(data)
+    }
+
     return (
         <>
             <Container>
                 <InputWindow type={type} form={form} setForm={setForm} />
-                <Filter type={type} />
-                <List type={type} form={form} Delete={Delete}></List>
+                <Filter type={type} form={form} sortType={sortType} FilterForm={FilterForm} />
+                <List type={type} form={form} Delete={Delete} filterObject={filterObject}></List>
             </Container >
         </>
     );

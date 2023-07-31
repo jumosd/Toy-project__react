@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components'
-const List = (props) => {
+const List = ({ form, Delete, fiterObject }) => {
 
+    const list = <p>해당 조건이없습니다.</p>
 
 
 
     return (
         <Container>
             <Box>
-
                 <table>
                     <thead>
                         <tr>
@@ -22,10 +22,8 @@ const List = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.form.map((item, idx) => {
-
+                        {form.map((item, idx) => {
                             return (
-
                                 <tr key={idx}>
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
@@ -33,14 +31,13 @@ const List = (props) => {
                                     <td>{item.dayOfPurchase}</td>
                                     <td>{item.memo}</td>
                                     <td>{item.repurchase}</td>
-                                    <td><button id="list_item_deletebtn" onClick={() => props.Delete(item.createat)}>삭제하기</button></td>
+                                    <td><button id="list_item_deletebtn" onClick={() => Delete(item.createat)}>삭제하기</button></td>
                                 </tr>
-
                             )
                         })}
                     </tbody>
                 </table>
-
+                {list}
             </Box>
         </Container >
     );
